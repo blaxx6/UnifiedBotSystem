@@ -1,0 +1,75 @@
+version: '3.3'
+
+services:
+  evolution-api:
+    container_name: evolution_api
+    image: atendai/evolution-api:latest
+    platform: linux/amd64  # Keeps emulation stable on your Mac M3
+    restart: always
+    ports:
+      - "8080:8080"
+    shm_size: '4gb'
+    environment:
+      - AUTHENTICATION_API_KEY=your_evolution_api_key_here
+      - SERVER_URL=http://localhost:8080
+      - WEBSOCKET_ENABLED=true
+      - DATABASE_PROVIDER=postgresql
+      - DATABASE_CONNECTION_URI=postgresql://evolution:evolutionpass123@postgres:5432/evolution
+      - REDIS_ENABLED=true
+      - REDIS_URI=redis://redis-queue:6379/0
+      - CACHE_REDIS_ENABLED=true
+      - CACHE_REDIS_URI=redis://redis-cache:6379/0
+      - DEL_INSTANCE_ON_CLOSE=false
+      - CONFIG_SESSION_PHONE_CLIENT=Evolution API
+      - CONFIG_SESSION_PHONE_VERSION=6.12.65
+    depends_on:
+      - postgres
+      - redis-queue
+      - redis-cache
+    networks:
+      - messaging-network
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  postgres:
+    container_name: postgres
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=evolution
+      - POSTGRES_PASSWORD=evolutionpass123
+      - POSTGRES_DB=evolution
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - messaging-network
+
+  redis-queue:
+    container_name: redis-queue
+    image: redis:alpine
+    restart: always
+    command: redis-server --bind 0.0.0.0
+    volumes:
+      - redis_queue_data:/data
+    networks:
+      - messaging-network
+
+  redis-cache:
+    container_name: redis-cache
+    image: redis:alpine
+    restart: always
+    command: redis-server --save "" --appendonly no --bind 0.0.0.0
+    networks:
+      - messaging-network
+
+networks:
+  messaging-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_queue_data:

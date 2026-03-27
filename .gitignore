@@ -1,0 +1,77 @@
+# ═══════════════════════════════════════════════════════════
+# .gitignore — Unified Bot System
+# ═══════════════════════════════════════════════════════════
+
+# ── Secrets & Personal Data ──────────────────────────────
+.env
+*.env
+!.env.example
+context.txt
+ai_settings.json
+style_profile.json
+
+# ── User Data Files ──────────────────────────────────────
+**/data/contacts.json
+**/data/contact_styles/
+**/data/scheduled_messages.json
+**/data/analyst_cache.json
+**/data/analyst_docs/
+**/data/analyst_index.json
+**/data/user_memories.json
+
+# ── WhatsApp Auth Data ───────────────────────────────────
+qr_base64.txt
+qrcode_data.json
+whatsapp_qr*
+
+# ── Vector DB (contains real chat embeddings) ────────────
+chroma_db/
+**/chroma_db/
+
+# ── Databases & Logs ─────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.log
+nohup.out
+pyre_output.txt
+
+# ── Generated Files ──────────────────────────────────────
+outputs/
+temp/
+!outputs/.gitkeep
+!temp/.gitkeep
+application_context.pdf
+
+# ── Python ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+
+# ── Virtual Environments ─────────────────────────────────
+.venv/
+env/
+venv/
+ENV/
+ven/
+
+# ── Models (large binary files) ──────────────────────────
+models/
+
+# ── IDEs ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Node (WhatsApp API) ──────────────────────────────────
+node_modules/
+
+# ── Archives ─────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.rar

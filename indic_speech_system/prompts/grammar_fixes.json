@@ -1,0 +1,177 @@
+{
+    "_meta": {
+        "version": 1,
+        "last_modified": "2026-03-02",
+        "author": "contributor",
+        "change_summary": "Initial extraction from bot_handler.py HINGLISH_FIXES + MASCULINE_VERB_FIXES"
+    },
+    "hinglish_fixes": [
+        [
+            "Aapne kuch baat karna kya hai\\??",
+            "Aap kuch baat karna chahte hain kya?"
+        ],
+        [
+            "Aapne (.+?) chahiye",
+            "Aapko \\1chahiye"
+        ],
+        [
+            "\\bAap\\b (.+?) hai\\b",
+            "Aap \\1hain"
+        ],
+        [
+            "\\bho sakta hai\\b",
+            "ho sakte hain"
+        ],
+        [
+            "\\bkar sakta hai\\b",
+            "kar sakte hain"
+        ],
+        [
+            "\\bsamajh nahi kar raha\\b",
+            "samajh nahi pa raha hoon"
+        ],
+        [
+            "\\bkuch baar\\b",
+            "kabhi kabhi"
+        ],
+        [
+            "\\bMai\\b",
+            "Main"
+        ],
+        [
+            "\\bAap ka baat\\b",
+            "Aapki baat"
+        ],
+        [
+            "\\bAap ka help\\b",
+            "Aapki help"
+        ],
+        [
+            "\\baap (.+?) sakta hai\\b",
+            "aap \\1sakte hain"
+        ],
+        [
+            "\\baap (.+?) chahta hai\\b",
+            "aap \\1chahte hain"
+        ],
+        [
+            "\\bkripya\\b",
+            "please"
+        ],
+        [
+            "\\bdhanyavaad\\b",
+            "thanks"
+        ],
+        [
+            "\\bnishchit roop se\\b",
+            "bilkul"
+        ],
+        [
+            "\\bHum aapko bata\\b",
+            "Main aapko bata"
+        ],
+        [
+            "\\bHum samajh\\b",
+            "Main samajh"
+        ],
+        [
+            "\\bMain (.+?) raha$",
+            "Main \\1raha hoon"
+        ],
+        [
+            "\\bMere girlfriend\\b",
+            "Meri girlfriend"
+        ],
+        [
+            "\\bMere behen\\b",
+            "Meri behen"
+        ],
+        [
+            "\\bMere mummy\\b",
+            "Meri mummy"
+        ],
+        [
+            "\\bMere wife\\b",
+            "Meri wife"
+        ],
+        [
+            "\\bMere jaan\\b",
+            "Meri jaan"
+        ],
+        [
+            "\\bMere crush\\b",
+            "Meri crush"
+        ],
+        [
+            "\\bMere life\\b",
+            "Meri life"
+        ],
+        [
+            "\\bMere problem\\b",
+            "Meri problem"
+        ],
+        [
+            "\\bMere help\\b",
+            "Meri help"
+        ],
+        [
+            "\\bMere job\\b",
+            "Meri job"
+        ],
+        [
+            "\\bMere gf\\b",
+            "Meri gf"
+        ],
+        [
+            "\\bMere sister\\b",
+            "Meri sister"
+        ]
+    ],
+    "masculine_verb_fixes": [
+        [
+            "(\\w+)ungi\\b",
+            "\\1unga"
+        ],
+        [
+            "(\\w+)aungi\\b",
+            "\\1aunga"
+        ],
+        [
+            "\\brahi hoon\\b",
+            "raha hoon"
+        ],
+        [
+            "\\brahi hu\\b",
+            "raha hu"
+        ],
+        [
+            "\\brahi huin\\b",
+            "raha hoon"
+        ],
+        [
+            "\\bthaki hoon\\b",
+            "thaka hoon"
+        ],
+        [
+            "\\bthaki\\b",
+            "thaka"
+        ]
+    ],
+    "masculine_verb_fixes_lambda": [
+        {
+            "pattern": "\\bMain (.+?)gayi\\b",
+            "find": "gayi",
+            "replace": "gaya"
+        },
+        {
+            "pattern": "\\bMain (.+?)aayi\\b",
+            "find": "aayi",
+            "replace": "aaya"
+        },
+        {
+            "pattern": "\\bMain (.+?)thi\\b",
+            "find": "thi",
+            "replace": "tha"
+        }
+    ]
+}
